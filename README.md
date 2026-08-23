@@ -1,313 +1,353 @@
-# Adaptive Maintenance Priority Engine
+# Predix — Adaptive Maintenance Priority Engine
 
-An industrial intelligence and predictive maintenance dashboard designed to help maintenance teams monitor fleet health, analyze machine telemetry, identify failure risks, and prioritize maintenance actions.
+**Predix** is an AI-powered predictive maintenance platform designed to help industrial teams monitor machine health, analyze telemetry, predict failure risks, and prioritize preventive maintenance.
 
-The system combines fleet-level health monitoring, telemetry analytics, predictive risk scoring, dataset profiling, work-order management, and what-if scenario simulation into a single operational dashboard.
-
----
-
-## 🚀 Project Overview
-
-Modern industrial environments generate large volumes of machine telemetry such as temperature, vibration, torque, RPM, and tool wear.
-
-The **Adaptive Maintenance Priority Engine** transforms these signals into actionable maintenance intelligence.
-
-Instead of simply showing raw machine data, the platform helps answer four important questions:
-
-> **What is happening? → Which machines need attention? → Why are they at risk? → What should we do?**
-
-The dashboard provides an operational view of machine health and supports predictive maintenance decision-making.
+The platform converts machine and telemetry data into actionable maintenance insights, helping engineers identify high-risk assets, understand possible failure contributors, and simulate safer operating conditions.
 
 ---
 
-## 🎯 Why This Project?
+## 🎯 Why Predix?
 
-Traditional maintenance approaches often depend on:
+Traditional maintenance often depends on fixed schedules or reactive inspections after equipment failure.
 
-* Fixed maintenance schedules
-* Manual inspection
-* Reactive maintenance after equipment failure
-* Large amounts of raw telemetry data
-* Difficulty prioritizing multiple machines
+Predix provides a data-driven approach by combining:
 
-This project aims to improve the maintenance workflow by using telemetry-driven risk analysis and predictive decision support.
+* Fleet health monitoring
+* Telemetry analysis
+* Predictive risk assessment
+* Machine prioritization
+* What-if simulation
+* Model performance monitoring
+* Maintenance work-order management
 
-### Main Goals
-
-* Identify machines with elevated failure risk
-* Prioritize assets requiring maintenance
-* Analyze telemetry and reliability trends
-* Understand major failure contributors
-* Simulate operational changes before taking action
-* Generate maintenance reports
-* Support data-driven maintenance decisions
+The goal is to help maintenance teams **identify risks earlier, prioritize the right machines, and reduce unexpected downtime.**
 
 ---
 
 ## ✨ Key Features
 
-### 1. Fleet Health Monitoring
+### 🏭 Fleet Health
 
-Provides an overview of the entire machine fleet.
+Monitor the health of industrial assets from a centralized dashboard.
 
-Features include:
-
-* Machine risk categorization
-* Healthy / Medium / High / Critical risk levels
-* Fleet risk distribution
+* Machine-level health monitoring
+* Risk classification
+* High-risk asset identification
+* Fleet-level statistics
 * Machine search and filtering
-* Dataset filtering
-* Priority-based sorting
-* Machine-level diagnostics
+* Maintenance prioritization
 
----
+### 📊 Analytics
 
-### 2. Predictive Analytics
+Analyze machine telemetry and operational trends.
 
-The analytics module provides telemetry and reliability analysis.
-
-It includes:
-
-* Multi-sensor time-series telemetry
-* Spindle temperature monitoring
+* Temperature monitoring
 * Vibration analysis
-* Predicted failure-risk trajectory
-* Failure-mode Pareto analysis
-* MTBF tracking
-* Avoided downtime cost metrics
-* Machine-specific telemetry selection
-* 24-hour, 7-day, and 30-day analysis windows
+* Torque analysis
+* RPM monitoring
+* Tool-wear analysis
+* Failure-risk trends
+* Reliability metrics
+* Failure-mode analysis
 
----
+### 📥 Dataset Ingestion
 
-### 3. Predictive Scenario Lab
+Upload and analyze custom machine datasets.
 
-The scenario simulator allows users to modify machine operating conditions and observe how the predicted risk changes.
+* Custom CSV dataset support
+* Dataset profiling
+* Data validation
+* Machine-level filtering
+* Telemetry analysis
 
-Users can experiment with parameters such as:
+### 🔬 What-If Simulator
+
+Simulate changes to machine operating conditions before taking maintenance actions.
+
+Users can modify parameters such as:
 
 * Temperature
 * Torque
 * RPM
 * Tool wear
 
-The system compares the simulated condition against the machine's baseline and provides:
+The simulator compares the scenario against the machine's baseline and provides a predicted risk assessment.
 
-* Predicted risk
-* Risk change
-* Risk status
-* Key contributing parameters
-* Recommended actions
+### 🤖 Model Performance
 
-This provides a **what-if analysis** capability for maintenance planning.
+Monitor predictive model performance and reliability.
 
----
+* Model metrics
+* Prediction performance
+* Risk classification
+* Model evaluation information
 
-### 4. Dataset Profiler
+### 👥 Teams & Work Orders
 
-The application supports dataset-oriented analysis and profiling.
+Connect machine risks with maintenance operations.
 
-Users can upload datasets and inspect machine-related information before using it for analysis.
-
----
-
-### 5. Work Order Management
-
-The platform includes maintenance work-order functionality to help connect machine risk with maintenance operations.
+* Maintenance work orders
+* Team assignment
+* Priority tracking
+* Operational task management
 
 ---
 
-### 6. Reports and Data Export
+## 🧠 AI / ML Pipeline
 
-The application provides export functionality including:
-
-* CSV export
-* Executive Excel reports
-* Executive briefing generation
-
-This allows maintenance information to be shared outside the dashboard.
-
----
-
-## 🧠 Predictive Risk Engine
-
-The project contains a risk calculation module that evaluates machine operating conditions.
-
-The risk engine considers parameters such as:
-
-* Process temperature
-* Torque
-* RPM
-* Tool wear
-* Baseline failure probability
-
-The simulator compares the modified scenario with the machine's baseline condition.
-
-Example decision logic includes detecting:
-
-* Excessive temperature
-* High tool wear
-* High torque
-* Improved thermal conditions
-* Improved tool condition
-
-Based on these conditions, the system generates recommended maintenance actions.
-
----
-
-## 🤖 AI / ML Pipeline
-
-The application is designed around a predictive maintenance workflow:
+Predix follows a predictive maintenance workflow:
 
 ```text
 Machine Telemetry
-       ↓
+       │
+       ▼
+Dataset Ingestion
+       │
+       ▼
 Data Processing
-       ↓
+       │
+       ▼
 Feature Analysis
-       ↓
+       │
+       ▼
 Predictive Risk Engine
-       ↓
-Failure Risk Estimation
-       ↓
+       │
+       ▼
+Failure Risk Prediction
+       │
+       ▼
 Risk Classification
-       ↓
+       │
+       ▼
 Maintenance Priority
-       ↓
+       │
+       ▼
 Recommended Action
 ```
 
-The application interface identifies the predictive engine as an **XGBoost-based nonlinear multi-variable classifier**.
-
-The current frontend contains the risk-analysis and scenario-simulation layer used to demonstrate predictive maintenance decision support.
+The predictive engine is designed around a **non-linear multi-variable classification approach**, with the project incorporating an **XGBoost-based predictive model workflow**.
 
 ---
 
 ## 🏗️ System Architecture
 
 ```text
-                    ┌──────────────────────┐
-                    │   Machine / Dataset  │
-                    │       Telemetry      │
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │   Dataset Processing │
-                    │    & Profiling       │
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │ Predictive Risk      │
-                    │ Engine               │
-                    └──────────┬───────────┘
-                               │
-              ┌────────────────┼────────────────┐
-              ▼                ▼                ▼
-       Fleet Health       Analytics       Scenario Lab
-              │                │                │
-              └────────────────┼────────────────┘
-                               ▼
-                    ┌──────────────────────┐
-                    │ Maintenance Actions  │
-                    │ & Work Orders        │
-                    └──────────────────────┘
+┌──────────────────────────┐
+│   Machine / Telemetry    │
+│          Data            │
+└────────────┬─────────────┘
+             │
+             ▼
+┌──────────────────────────┐
+│    Dataset Ingestion     │
+│      & Profiling         │
+└────────────┬─────────────┘
+             │
+             ▼
+┌──────────────────────────┐
+│   Predictive Risk Engine │
+└────────────┬─────────────┘
+             │
+     ┌───────┼────────┐
+     ▼       ▼        ▼
+┌────────┐ ┌────────┐ ┌─────────────┐
+│ Fleet  │ │Analytics│ │ What-If Lab │
+│ Health │ │         │ │  Simulator  │
+└───┬────┘ └────┬────┘ └──────┬──────┘
+    │           │             │
+    └───────────┼─────────────┘
+                ▼
+       ┌──────────────────┐
+       │ Maintenance      │
+       │ Actions & Orders │
+       └──────────────────┘
 ```
 
 ---
 
 ## 🔄 Core Workflow
 
-1. Select or upload machine data.
-2. Analyze fleet and telemetry information.
-3. Calculate or obtain machine failure risk.
-4. Categorize assets according to risk.
-5. Identify machines requiring attention.
-6. Analyze telemetry and possible failure contributors.
-7. Run what-if scenarios for selected machines.
-8. Compare simulated risk against baseline risk.
-9. Generate recommended maintenance actions.
-10. Export reports for operational use.
+1. Ingest machine telemetry or upload a custom dataset.
+2. Profile and validate the dataset.
+3. Analyze machine operating conditions.
+4. Calculate predictive failure risk.
+5. Classify machines according to risk.
+6. Identify high-priority assets.
+7. Analyze telemetry trends and possible contributors.
+8. Run what-if scenarios.
+9. Compare simulated conditions with baseline conditions.
+10. Generate maintenance recommendations.
+11. Create or prioritize maintenance work orders.
+12. Export operational reports.
 
 ---
 
 ## 🛠️ Technology Stack
 
-### Frontend
-
-* JavaScript
-* HTML
-* CSS
-* Vite
-
-### Data Visualization
-
-* Chart.js
-
-### Build Tool
-
-* Vite
-
-### Development Environment
-
-* Node.js
-* npm
+| Technology     | Purpose                            |
+| -------------- | ---------------------------------- |
+| **JavaScript** | Application logic                  |
+| **HTML5**      | Application structure              |
+| **CSS3**       | UI and responsive styling          |
+| **Vite**       | Frontend build and development     |
+| **Chart.js**   | Data visualization                 |
+| **Node.js**    | JavaScript runtime                 |
+| **npm**        | Dependency management              |
+| **XGBoost**    | Predictive classification workflow |
 
 ---
 
 ## 📁 Project Structure
 
 ```text
-crm/
+Predix-maintenance/
+│
+├── Predix-Engine/
+│
+├── src/
+│   ├── components/
+│   │   ├── DispatchModal.js
+│   │   ├── Header.js
+│   │   ├── MachineModal.js
+│   │   ├── Sidebar.js
+│   │   ├── Toast.js
+│   │   └── UploadModal.js
+│   │
+│   ├── data/
+│   │   ├── activityLogs.js
+│   │   ├── diagnosticGuides.js
+│   │   ├── fleetData.js
+│   │   ├── modelMetrics.js
+│   │   ├── teamsData.js
+│   │   └── telemetryData.js
+│   │
+│   ├── utils/
+│   │   ├── datasetParser.js
+│   │   ├── excelReport.js
+│   │   ├── export.js
+│   │   └── riskModel.js
+│   │
+│   ├── views/
+│   │   ├── AnalyticsView.js
+│   │   ├── DashboardView.js
+│   │   ├── DatasetProfilerView.js
+│   │   ├── FleetHealthView.js
+│   │   ├── ModelPerfView.js
+│   │   ├── SimulatorView.js
+│   │   └── WorkOrdersView.js
+│   │
+│   └── styles/
+│       └── main.css
+│
+├── screenshots/
+│   ├── Dashboard.png
+│   ├── Fleet_Health.png
+│   ├── Dataset_Ingestion.png
+│   ├── Teams_&_Work_Orders.png
+│   ├── What-If-Simulator.png
+│   ├── Model_Performance.png
+│   └── Analytics.png
 │
 ├── index.html
 ├── package.json
 ├── package-lock.json
 ├── vite.config.js
-│
-└── src/
-    │
-    ├── main.js
-    │
-    ├── components/
-    │   ├── DispatchModal.js
-    │   ├── Header.js
-    │   ├── MachineModal.js
-    │   ├── Sidebar.js
-    │   ├── Toast.js
-    │   └── UploadModal.js
-    │
-    ├── data/
-    │   ├── activityLogs.js
-    │   ├── diagnosticGuides.js
-    │   ├── fleetData.js
-    │   ├── modelMetrics.js
-    │   ├── teamsData.js
-    │   └── telemetryData.js
-    │
-    ├── utils/
-    │   ├── datasetParser.js
-    │   ├── excelReport.js
-    │   ├── export.js
-    │   └── riskModel.js
-    │
-    ├── views/
-    │   ├── AnalyticsView.js
-    │   ├── DashboardView.js
-    │   ├── DatasetProfilerView.js
-    │   ├── FleetHealthView.js
-    │   ├── ModelPerfView.js
-    │   ├── SimulatorView.js
-    │   └── WorkOrdersView.js
-    │
-    └── styles/
-        └── main.css
+├── LICENSE
+└── README.md
 ```
 
 ---
 
-## ⚙️ Installation
+# 📸 Screenshots
+
+## 🏠 Dashboard
+
+![Dashboard](screenshots/Dashboard.png)
+
+---
+
+## 🏭 Fleet Health
+
+![Fleet Health](screenshots/Fleet_Health.png)
+
+---
+
+## 📥 Dataset Ingestion
+
+![Dataset Ingestion](screenshots/Dataset_Ingestion.png)
+
+---
+
+## 👥 Teams & Work Orders
+
+![Teams & Work Orders](screenshots/Teams_%26_Work_Orders.png)
+
+---
+
+## 🔬 What-If Simulator
+
+![What-If Simulator](screenshots/What-If-Simulator.png)
+
+---
+
+## 🤖 Model Performance
+
+![Model Performance](screenshots/Model_Performance.png)
+
+---
+
+## 📊 Analytics
+
+![Analytics](screenshots/Analytics.png)
+
+---
+
+## 💡 Example Use Case
+
+Imagine a manufacturing facility operating multiple industrial machines.
+
+One machine begins showing:
+
+* Increasing temperature
+* High torque
+* Increased tool wear
+* Increasing predicted failure probability
+
+Predix identifies the machine as a higher-risk asset.
+
+The maintenance engineer can then:
+
+1. Open the machine's health information.
+2. Review its telemetry.
+3. Identify possible risk contributors.
+4. Open the What-If Simulator.
+5. Modify operating conditions.
+6. Compare predicted risk with the baseline.
+7. Review recommended maintenance actions.
+8. Assign a maintenance work order.
+
+This enables a shift from **reactive maintenance to predictive, data-driven maintenance.**
+
+---
+
+## 📊 Engineering Highlights
+
+* Modular JavaScript architecture
+* Component-based UI design
+* Fleet-level machine monitoring
+* Predictive risk analysis
+* Interactive telemetry visualization
+* Dataset ingestion and profiling
+* What-if scenario simulation
+* Maintenance work-order management
+* Model performance monitoring
+* CSV and report export capabilities
+* Responsive industrial dashboard
+* Separation of views, data, components, and utilities
+
+---
+
+## ⚙️ Installation & Setup
 
 ### 1. Clone the repository
 
@@ -315,10 +355,10 @@ crm/
 git clone <YOUR_GITHUB_REPOSITORY_URL>
 ```
 
-### 2. Navigate to the project
+### 2. Enter the project directory
 
 ```bash
-cd crm
+cd Predix-maintenance
 ```
 
 ### 3. Install dependencies
@@ -333,7 +373,7 @@ npm install
 npm run dev
 ```
 
-The application will be available at:
+The application will normally be available at:
 
 ```text
 http://localhost:5173
@@ -341,159 +381,74 @@ http://localhost:5173
 
 ---
 
-## 🏭 Example Use Case
-
-Consider a manufacturing plant operating several CNC machines.
-
-One machine begins showing:
-
-* Increasing temperature
-* High torque
-* Increased tool wear
-* Higher predicted failure probability
-
-The Fleet Health module identifies the machine as high risk.
-
-The maintenance engineer can then:
-
-1. Open the machine details.
-2. Review telemetry.
-3. Identify possible failure contributors.
-4. Open the Scenario Lab.
-5. Modify temperature, torque, RPM, or tool-wear conditions.
-6. Compare predicted risk.
-7. Review recommended actions.
-8. Create or prioritize maintenance work.
-9. Export an executive report.
-
-This allows maintenance teams to move from **reactive maintenance to data-driven predictive maintenance**.
-
----
-
-## 📊 Engineering Highlights
-
-* Component-based frontend architecture
-* Modular JavaScript structure
-* Reusable UI components
-* Chart.js-based telemetry visualization
-* Client-side dataset processing
-* Risk calculation engine
-* Scenario-based predictive analysis
-* Fleet filtering and prioritization
-* CSV and Excel report generation
-* Responsive dashboard design
-* Separation of data, views, utilities, and UI components
-
----
-
 ## 🔐 Security & Repository Hygiene
 
-The following files and directories should **not** be committed to GitHub:
+The following files and directories should not be committed:
 
-```text
-.env
-.env.*
+```gitignore
 node_modules/
 dist/
-build/
+.env
+.env.*
+*.log
 .cache/
 .vite/
-*.log
+build/
+coverage/
 ```
 
 Never commit:
 
 * API keys
 * Passwords
-* Authentication tokens
+* Access tokens
 * Private credentials
 * Secret configuration files
 
 ---
 
-## 📸 Screenshots
-
-Add screenshots to a directory such as:
-
-```text
-screenshots/
-├── dashboard.png
-├── fleet-health.png
-├── analytics.png
-├── simulator.png
-└── work-orders.png
-```
-
-Then reference them in this README using relative paths:
-
-```markdown
-## 📸 Screenshots
-
-### Dashboard
-
-![Dashboard](screenshots/dashboard.png)
-
-### Fleet Health
-
-![Fleet Health](screenshots/fleet-health.png)
-
-### Predictive Analytics
-
-![Analytics](screenshots/analytics.png)
-
-### Scenario Lab
-
-![Scenario Lab](screenshots/simulator.png)
-```
-
-**Only add these image references after confirming the actual screenshot filenames. Do not rename or assume screenshots without checking the project files.**
-
----
-
 ## 🚧 Project Status
 
-**Status: Hackathon / Prototype**
+**Status: Hackathon Prototype / Active Development**
 
-The current version demonstrates the core predictive-maintenance dashboard, fleet intelligence workflow, telemetry visualization, risk analysis, scenario simulation, and reporting capabilities.
+Predix currently demonstrates the core predictive-maintenance workflow including fleet monitoring, telemetry analytics, predictive risk assessment, scenario simulation, model monitoring, and maintenance operations.
 
 ---
 
 ## 🔮 Future Improvements
 
-Potential improvements include:
-
-* Integration with real industrial IoT sensors
-* Real-time telemetry streaming
+* Real-time industrial IoT integration
+* Live telemetry streaming
 * Backend API integration
 * Production ML model serving
 * Automated model retraining
 * Database integration
 * Authentication and role-based access
 * Advanced anomaly detection
-* Explainable AI for predictions
+* Explainable AI
 * Automated maintenance scheduling
+* Real-time alerts
 * Cloud deployment
-* Real-time alerts and notifications
 * Historical failure prediction
-* Integration with industrial IoT platforms
+* Industrial IoT platform integration
 
 ---
 
 ## 👥 Intended Users
 
-The system can support:
+Predix is designed for:
 
-* Maintenance engineers
-* Plant managers
-* Reliability engineers
-* Operations teams
-* Industrial data scientists
-* Manufacturing organizations
+* Maintenance Engineers
+* Reliability Engineers
+* Plant Managers
+* Operations Teams
+* Industrial Data Scientists
+* Manufacturing Organizations
 
 ---
 
 ## 📄 License
 
-This project was developed as a hackathon/project prototype.
+This project is licensed under the **MIT License**.
 
-Add an appropriate open-source license if the project is intended for public reuse.
+See the [LICENSE](LICENSE) file for details.
