@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PREDIX | Industrial Intelligence Command Center</title>
+  <meta name="description" content="Industrial Intelligence & Predictive Maintenance Mission Control. Real-time telemetry analytics, RUL estimation, SHAP root cause explainability, and prescriptive work order routing.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN for instant styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0284C7',
+            'primary-container': '#131B2E',
+            'on-primary': '#FFFFFF',
+            'on-primary-container': '#94A3B8',
+            secondary: '#06B6D4',
+            'secondary-container': '#083344',
+            'secondary-fixed': '#67E8F9',
+            background: '#080C14',
+            surface: '#0F1626',
+            'surface-card': '#131B2E',
+            'surface-container-lowest': '#080C14',
+            'surface-container-low': '#0D131F',
+            'surface-container': '#161F33',
+            'surface-container-high': '#1E293B',
+            'surface-container-highest': '#334155',
+            'on-surface': '#F8FAFC',
+            'on-surface-variant': '#94A3B8',
+            'border-subtle': 'rgba(148, 163, 184, 0.15)',
+            'status-critical': '#EF4444',
+            'status-warning': '#F59E0B',
+            'status-healthy': '#10B981',
+            'status-info': '#06B6D4'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+            'data-number': ['JetBrains Mono', 'monospace'],
+            'label-md': ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- App Stylesheet -->
+  <script type="module" crossorigin src="/assets/index-D2iAk67q.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-ZwflZKf5.css">
+</head>
+<body class="bg-background text-on-surface font-sans antialiased select-none predix-command-grid min-h-screen overflow-x-hidden">
+  <!-- Main App Shell -->
+  <div id="app" class="flex min-h-screen relative w-full overflow-x-hidden">
+    <!-- Sidebar inserted dynamically -->
+    <div id="sidebar-root"></div>
+
+    <!-- Main Content Area -->
+    <div class="flex-1 flex flex-col min-w-0 w-full md:pl-72">
+      <!-- Header inserted dynamically -->
+      <div id="header-root"></div>
+
+      <!-- Active View Container -->
+      <main id="view-container" class="flex-1 pt-16 min-h-[calc(100vh-64px)] pb-8 sm:pb-12 w-full overflow-x-hidden">
+        <!-- Views rendered here -->
+      </main>
+    </div>
+  </div>
+
+  <!-- Global Modal Mount Point -->
+  <div id="modal-root"></div>
+
+  <!-- Global Toast Notification Container -->
+  <div id="toast-root" class="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:bottom-6 sm:max-w-md z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- Main JavaScript Entry -->
+</body>
+</html>
